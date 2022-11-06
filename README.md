@@ -1,2 +1,2 @@
-# dyblog
-A blog application
+# blog app
+### A simple blog application
