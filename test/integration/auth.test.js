@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 beforeEach((done) => {
   jest.setTimeout(60000);
   mongoose.connect(
-    "mongodb://localhost:27017/blog-app",
+    process.env.DB_URL,
     { useNewUrlParser: true, useUnifiedTopology: true },
     () => done()
   );
