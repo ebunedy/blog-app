@@ -4,7 +4,7 @@
   "description": "A blog application",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "server.js",
     "test": "jest"
   },
   "repository": {
