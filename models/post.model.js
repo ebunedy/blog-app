@@ -28,7 +28,7 @@ const postModel = Schema(
       default: 0,
     },
     reading_time: {
-      type: String,
+      type: Number,
     },
     state: {
       type: String,

@@ -40,14 +40,17 @@ const searchSortPaginatePosts = async (req, res) => {
   let sortPosts = Post.find(queryObject);
   const lowercaseSort = date_created?.toLowerCase();
   const lowercaseAuthor = author?.toLowerCase();
-  const lowercaseReadCount = read_count?.toLowerCase();
+  const readCount = read_count?.toLowerCase();
+  const readTime = reading_time?.toLowerCase();
   const sortObject = {};
   if (lowercaseSort === "latest") sortObject.createdAt = -1;
   if (lowercaseSort === "oldest") sortObject.createdAt = 1;
-  if (lowercaseAuthor === "z-a") sortObject.createdAt = 1;
-  if (lowercaseAuthor === "a-z") sortObject.createdAt = -1;
-  if (lowercaseReadCount === "descending") sortObject.createdAt = 1;
-  if (lowercaseReadCount === "ascending") sortObject.createdAt = -1;
+  if (lowercaseAuthor === "z-a") sortObject.author = -1;
+  if (lowercaseAuthor === "a-z") sortObject.author = 1;
+  if (readCount === "descending") sortObject.read_count = -1;
+  if (readCount === "ascending") sortObject.read_count = 1;
+  if (readTime === "descending") sortObject.reading_time = -1;
+  if (readTime === "ascending") sortObject.reading_time = 1;
 
   sortPosts = sortPosts.sort(sortObject);
   const page = Number(req.query.page) || 1;
